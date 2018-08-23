@@ -1,7 +1,11 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const merge = require('webpack-merge');
 
-module.exports = (env, argv) => ({
+const developmentConfig = require('./webpack.development');
+const productionConfig = require('./webpack.production');
+
+const baseConfig = {
   entry: './src/index',
   output: {
     path: path.join(__dirname, 'build'),
@@ -21,6 +25,15 @@ module.exports = (env, argv) => ({
           'css-loader',
           'sass-loader'
         ]
+      },
+      {
+        test: /\.(svg|png|jpg|gif)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {}
+          }
+        ]
       }
     ]
   },
@@ -28,10 +41,15 @@ module.exports = (env, argv) => ({
     new HtmlWebpackPlugin({
       template: './assets/index.html'
     })
-  ],
-  devtool: argv.mode === 'development' ? 'source-map' : false,
-  devServer: {
-    contentBase: path.join(__dirname, 'build'),
-    historyApiFallback: true,
-  },
-});
+  ]
+};
+
+module.exports = (env, arg) => {
+  if (!!arg.mode && arg.mode === 'production') {
+    // console.log('PRODUCTION \n\n\n');
+    return merge(productionConfig, baseConfig);
+  } else {
+    // console.log('DEVELOPMENT \n\n\n');
+    return merge(developmentConfig, baseConfig);
+  }
+};

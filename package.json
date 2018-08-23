@@ -10,9 +10,11 @@
     "build": "webpack --mode production --progress"
   },
   "dependencies": {
+    "bootstrap-sass": "^3.3.7",
     "css-loader": "^1.0.0",
     "node-sass": "^4.9.3",
     "react": "^16.4.2",
+    "react-bootstrap": "^0.32.3",
     "react-dom": "^16.4.2",
     "react-router-config": "^1.0.0-beta.4",
     "react-router-dom": "^4.3.1",

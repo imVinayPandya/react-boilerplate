@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 const Login = () => (
   <div>
     <h5>Login here</h5>
-    <NavLink to='/registration' activeClassName="is-active"> Registration </NavLink>
+    <NavLink to='/signup' activeClassName="is-active"> Signup </NavLink>
     <NavLink to='/'> Home </NavLink>
   </div>
 );

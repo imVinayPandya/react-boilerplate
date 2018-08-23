@@ -5,5 +5,6 @@ module.exports = {
   devServer: {
     contentBase: path.join(__dirname, 'build'),
     historyApiFallback: true,
+    compress: true
   }
 };

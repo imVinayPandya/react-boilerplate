@@ -11,7 +11,7 @@ const Layout = ({ route }) => {
       <Header />
       <NavLink to='/' activeClassName="is-active">Home</NavLink>
       <NavLink to='/login' activeClassName="is-active">Login</NavLink>
-      <NavLink to='/registration' activeClassName="is-active">Registration</NavLink>
+      <NavLink to='/signup' activeClassName="is-active">Signup</NavLink>
       {renderRoutes(route.routes)}
       <Footer />
     </div>

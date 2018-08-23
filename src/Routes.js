@@ -3,7 +3,7 @@ import Dashboard from "./pages/Dashboard/Dashboard";
 import Login from "./pages/Login/Login";
 import NotFound from "./pages/NotFound/NotFound";
 import App from "./App";
-import Registration from "./pages/Registration/Registration";
+import Signup from "./pages/Signup/Signup";
 
 const Routes = [
   {
@@ -18,7 +18,7 @@ const Routes = [
         ]
       },
       { component: Login, path: '/login', exact: true },
-      { component: Registration, path: '/registration', exact: true },
+      { component: Signup, path: '/signup', exact: true },
       { component: NotFound }
     ],
   }

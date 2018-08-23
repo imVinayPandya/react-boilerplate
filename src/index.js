@@ -1,6 +1,16 @@
 import React from 'react';
-import { render } from 'react-dom';
-import App from './components/App';
+import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
+import { renderRoutes } from 'react-router-config';
+import Routes from './Routes';
 import './styles/styles.scss';
 
-render(<App />, document.getElementById('app'));
+const jsx = (
+  <BrowserRouter>
+    <div>
+      {renderRoutes(Routes)}
+    </div>
+  </BrowserRouter>
+);
+
+ReactDOM.render(jsx, document.getElementById('app'));

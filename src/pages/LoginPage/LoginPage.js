@@ -13,8 +13,8 @@ class LoginPage extends Component {
   }
 
   hanldeLogin(data) {
-    const { login, history } = this.props;
-    login(data).then(() => history.push('/'));
+    const { login: loginProp, history } = this.props;
+    return loginProp(data).then(() => history.push('/'));
   }
 
   render() {

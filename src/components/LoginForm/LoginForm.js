@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, FormControl, FormGroup } from 'react-bootstrap';
+import { Button, FormControl, FormGroup, Alert } from 'react-bootstrap';
 import { isEmail } from 'validator';
 import PropTypes from 'prop-types';
 import InlineMessage from '../InlineMssage/InlineMessage';
@@ -29,8 +29,6 @@ class LoginForm extends Component {
     this.setState((prevState) => ({
       data: { ...prevState.data, [e.target.name]: e.target.value }
     }));
-    const { data } = this.state;
-    this.validate(data);
   }
 
   hanldeSubmit(e) {
@@ -41,7 +39,10 @@ class LoginForm extends Component {
     this.setState({ errors });
 
     if (Object.keys(errors).length === 0) {
-      onLogin(data);
+      this.setState({ loading: true });
+      onLogin(data).catch((err) => {
+        this.setState({ errors: { global: err.response.data.error }, loading: false });
+      });
     }
   }
 
@@ -60,9 +61,12 @@ class LoginForm extends Component {
     return (
       <div>
         <h2>Login</h2>
-
         <form onSubmit={this.hanldeSubmit}>
-
+          {errors.global ?
+            <Alert bsStyle="danger" >
+              <h4>Something went wrong!</h4>
+              <p>{errors.global}</p>
+            </Alert> : ''}
           <FormGroup controlId="email" validationState={errors.email ? 'error' : null}>
             <FormControl
               name='email'

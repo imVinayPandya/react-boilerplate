@@ -1,10 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import FormGroup from 'react-bootstrap/lib/FormGroup';
-import FormControl from 'react-bootstrap/lib/FormControl';
-import Button from 'react-bootstrap/lib/Button';
-import Row from 'react-bootstrap/lib/Row';
-import Col from 'react-bootstrap/lib/Col';
+import { Col, Row, Button, FormControl, FormGroup } from 'react-bootstrap';
 import './SignupForm.scss';
 
 
@@ -29,12 +25,10 @@ class SignupForm extends React.Component {
     if (!!password && !!confirmPassword) {
       if (password === confirmPassword) {
         return 'success';
-      } else {
-        return 'error';
       }
-    } else {
-      return null;
+      return 'error';
     }
+    return null;
   }
 
   handleChange(e) {

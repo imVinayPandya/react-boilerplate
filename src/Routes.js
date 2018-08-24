@@ -1,9 +1,9 @@
-import Layout from "./components/Layout/Layout";
-import Dashboard from "./pages/Dashboard/Dashboard";
-import Login from "./pages/Login/Login";
-import NotFound from "./pages/NotFound/NotFound";
-import App from "./App";
-import Signup from "./pages/Signup/Signup";
+import Layout from './components/Layout/Layout';
+import DashboardPage from './pages/DashboardPage/DashboardPage';
+import LoginPage from './pages/LoginPage/LoginPage';
+import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
+import App from './App';
+import SignupPage from './pages/SignupPage/SignupPage';
 
 const Routes = [
   {
@@ -14,12 +14,12 @@ const Routes = [
         path: '/',
         exact: true,
         routes: [
-          { component: Dashboard, path: '/', exact: true }
+          { component: DashboardPage, path: '/', exact: true }
         ]
       },
-      { component: Login, path: '/login', exact: true },
-      { component: Signup, path: '/signup', exact: true },
-      { component: NotFound }
+      { component: LoginPage, path: '/login', exact: true },
+      { component: SignupPage, path: '/signup', exact: true },
+      { component: NotFoundPage }
     ],
   }
 ];

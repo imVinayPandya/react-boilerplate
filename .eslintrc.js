@@ -1,33 +1,37 @@
 module.exports = {
-    "parser": "babel-eslint",
-    "env": {
-        "browser": true,
-        "es6": true
-    },
-    "extends": [
-        "airbnb",
-        "eslint:recommended",
-        "plugin:react/recommended"
+  "extends": [
+    "airbnb",
+    "prettier",
+    "prettier/react"
+  ],
+  "plugins": [
+    "react",
+    "prettier"
+  ],
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaVersion": 2016,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true
+  },
+  "rules": {
+    "indent": [2, 2, { "SwitchCase": 1 }],
+    "quotes": [1, "single", { "avoidEscape": true }],
+    "linebreak-style": [
+      "error",
+      "unix"
     ],
-    "plugins": [
-        "react"
+    "semi": [
+      "error",
+      "always"
     ],
-    "rules": {
-        "id-length": 0,
-        "indent": [2, 2, { "SwitchCase": 1 }],
-        "no-console": 1,
-        "no-unused-vars": [1, { "vars": "local", "args": "none" }],
-        "strict": 0,
-        "react/jsx-uses-react": "error",
-        "react/jsx-uses-vars": "error",
-        "linebreak-style": [
-            "error",
-            "unix"
-        ],
-        "semi": [
-            "error",
-            "always"
-        ],
-        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-    },
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+  },
 };

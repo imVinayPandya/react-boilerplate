@@ -4,7 +4,7 @@ import Row from 'react-bootstrap/lib/Row';
 import Col from 'react-bootstrap/lib/Col';
 import SignupForm from '../../components/SignupForm/SignupForm';
 
-class Signup extends React.Component {
+class SignupPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -25,4 +25,4 @@ class Signup extends React.Component {
   }
 }
 
-export default Signup;
+export default SignupPage;

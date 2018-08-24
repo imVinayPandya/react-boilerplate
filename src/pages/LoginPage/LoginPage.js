@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Grid, Row, Col } from 'react-bootstrap';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import LoginForm from '../../components/LoginForm/LoginForm';
+import { login } from '../../actions/auth';
 
 class LoginPage extends Component {
   constructor(props) {
@@ -10,7 +13,8 @@ class LoginPage extends Component {
   }
 
   hanldeLogin(data) {
-    console.log(data);
+    const { login, history } = this.props;
+    login(data).then(() => history.push('/'));
   }
 
   render() {
@@ -28,4 +32,11 @@ class LoginPage extends Component {
   }
 }
 
-export default LoginPage;
+LoginPage.propTypes = {
+  login: PropTypes.func.isRequired,
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired
+  }).isRequired
+};
+
+export default connect(null, { login })(LoginPage);

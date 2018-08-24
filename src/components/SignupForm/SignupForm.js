@@ -116,7 +116,7 @@ class SignupForm extends React.Component {
           </FormGroup>
 
           <FormGroup>
-            <Button type='submit'>Sign up</Button>
+            <Button type='submit' bsStyle="primary" bsSize="large">Sign up</Button>
             <NavLink to='/login' activeClassName="is-active" className='pull-right'> Login </NavLink>
           </FormGroup>
         </form>

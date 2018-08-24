@@ -1,3 +1,24 @@
+$bootstrap-sass-asset-helper: true;
+
+//** theme setup
+$green-flat:    #35d689;
+$orange-flat:   #fbc270;
+$blue-flat:     #36a9ff;
+$red-flat:      #f95a5c;
+
+$primary:       $green-flat;
+$secondary:     $orange-flat;
+$info:          $blue-flat;
+$success:       $green-flat;
+$warning:       $orange-flat;
+$danger:        $red-flat;
+
+$brand-primary:         $primary; // #337ab7
+$brand-success:         $success;
+$brand-info:            $info;
+$brand-warning:         $warning;
+$brand-danger:          $danger;
+
 //** `.form-group` margin
 $form-group-margin-bottom:  35px;
 

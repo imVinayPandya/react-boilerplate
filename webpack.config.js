@@ -18,14 +18,14 @@ const baseConfig = {
         exclude: /node_modules/,
         loader: "babel-loader"
       },
-      {
-        test: /\.s?css$/,
-        use: [
-          'style-loader',
-          'css-loader',
-          'sass-loader'
-        ]
-      },
+      // {
+      //   test: /\.s?css$/,
+      //   use: [
+      //     // 'style-loader',
+      //     'css-loader',
+      //     'sass-loader'
+      //   ]
+      // },
       {
         test: /\.(svg|png|jpg|gif)$/,
         use: [

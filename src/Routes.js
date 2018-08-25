@@ -5,10 +5,12 @@ import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 import App from './App';
 import SignupPage from './pages/SignupPage/SignupPage';
 import HomePage from './pages/HomePage/HomePage';
+import AuthRequired from './hoc/AuthRequired';
+import AuthNotRequired from './hoc/AuthNotRequired';
 
 const Routes = [
   {
-    component: HomePage,
+    component: AuthNotRequired(HomePage),
     path: '/',
     exact: true,
   },
@@ -17,13 +19,13 @@ const Routes = [
     path: '/dashboard',
     exact: true,
     routes: [
-      { component: DashboardPage, path: '/dashboard', exact: true }
+      { component: AuthRequired(DashboardPage), path: '/dashboard', exact: true }
     ]
   },
-  { component: LoginPage, path: '/login', exact: true },
-  { component: SignupPage, path: '/signup', exact: true },
+  { component: AuthNotRequired(LoginPage), path: '/login', exact: true },
+  { component: AuthNotRequired(SignupPage), path: '/signup', exact: true },
 
-  { component: NotFoundPage }
+  { component: AuthNotRequired(NotFoundPage) }
 ];
 
 export default Routes;

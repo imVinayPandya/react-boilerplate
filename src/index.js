@@ -2,19 +2,27 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import { renderRoutes } from 'react-router-config';
-import './styles/styles.scss';
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import axios from 'axios';
+// import axios from 'axios';
 import rootReducer from './rootReducer';
 import Routes from './Routes';
+
+import 'react-overlay-loader/styles.css';
+import './styles/styles.scss';
+import { userLoggedIn } from './actions/auth';
 
 const store = createStore(
   rootReducer,
   composeWithDevTools(applyMiddleware(thunk))
 );
+
+if (localStorage.token) {
+  const user = { token: localStorage.token };
+  store.dispatch(userLoggedIn(user));
+}
 
 const jsx = (
   <Provider store={store}>

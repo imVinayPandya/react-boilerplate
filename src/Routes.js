@@ -4,24 +4,26 @@ import LoginPage from './pages/LoginPage/LoginPage';
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 import App from './App';
 import SignupPage from './pages/SignupPage/SignupPage';
+import HomePage from './pages/HomePage/HomePage';
 
 const Routes = [
   {
-    component: App,
+    component: HomePage,
+    path: '/',
+    exact: true,
+  },
+  {
+    component: Layout,
+    path: '/dashboard',
+    exact: true,
     routes: [
-      {
-        component: Layout,
-        path: '/',
-        exact: true,
-        routes: [
-          { component: DashboardPage, path: '/', exact: true }
-        ]
-      },
-      { component: LoginPage, path: '/login', exact: true },
-      { component: SignupPage, path: '/signup', exact: true },
-      { component: NotFoundPage }
-    ],
-  }
+      { component: DashboardPage, path: '/dashboard', exact: true }
+    ]
+  },
+  { component: LoginPage, path: '/login', exact: true },
+  { component: SignupPage, path: '/signup', exact: true },
+
+  { component: NotFoundPage }
 ];
 
 export default Routes;

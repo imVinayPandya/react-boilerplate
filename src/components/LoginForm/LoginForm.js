@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Button, FormControl, FormGroup, Alert } from 'react-bootstrap';
 import { isEmail } from 'validator';
 import PropTypes from 'prop-types';
+import { Loader } from 'react-overlay-loader';
 import InlineMessage from '../InlineMssage/InlineMessage';
 
 class LoginForm extends Component {
@@ -41,7 +42,8 @@ class LoginForm extends Component {
     if (Object.keys(errors).length === 0) {
       this.setState({ loading: true });
       onLogin(data).catch((err) => {
-        this.setState({ errors: { global: err.response.data.error }, loading: false });
+        console.log(err.response.data.errors);
+        this.setState({ errors: err.response.data.errors, loading: false });
       });
     }
   }
@@ -55,13 +57,15 @@ class LoginForm extends Component {
   }
 
   render() {
-    const { data, errors } = this.state;
+    const { data, errors, loading } = this.state;
     const { email, password } = data;
 
     return (
       <div>
         <h2>Login</h2>
         <form onSubmit={this.hanldeSubmit}>
+          <Loader fullPage loading={loading} />
+
           {errors.global ?
             <Alert bsStyle="danger" >
               <h4>Something went wrong!</h4>

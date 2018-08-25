@@ -14,7 +14,7 @@ class LoginPage extends Component {
 
   hanldeLogin(data) {
     const { login: loginProp, history } = this.props;
-    return loginProp(data).then(() => history.push('/'));
+    return loginProp(data).then(() => history.push('/dashboard'));
   }
 
   render() {

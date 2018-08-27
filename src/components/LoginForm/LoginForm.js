@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { Button, FormControl, FormGroup, Alert } from 'react-bootstrap';
+import { Button, FormControl, FormGroup, Alert, Checkbox } from 'react-bootstrap';
 import { isEmail } from 'validator';
 import PropTypes from 'prop-types';
 import { Loader } from 'react-overlay-loader';
 import InlineMessage from '../InlineMssage/InlineMessage';
+import './LoginForm.scss';
 
 class LoginForm extends Component {
   constructor(props) {
@@ -62,7 +63,6 @@ class LoginForm extends Component {
 
     return (
       <div>
-        <h2>Login</h2>
         <form onSubmit={this.hanldeSubmit}>
           <Loader fullPage loading={loading} />
 
@@ -94,8 +94,10 @@ class LoginForm extends Component {
           </FormGroup>
 
           <FormGroup>
-            <Button type='submit' bsStyle="primary" bsSize="large">Log In</Button>
+            <Checkbox name='keep-login' className='keep-me-signed-in'>Keep me signed in</Checkbox>
           </FormGroup>
+
+          <Button type='submit' bsStyle="info" bsSize="large" block>SIGN IN</Button>
         </form>
       </div>
     );

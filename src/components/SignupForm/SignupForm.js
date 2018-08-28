@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { Col, Row, Button, FormControl, FormGroup } from 'react-bootstrap';
+import { Col, Row, Button, FormControl, FormGroup, ControlLabel } from 'react-bootstrap';
 import './SignupForm.scss';
 
 
@@ -11,6 +11,11 @@ class SignupForm extends React.Component {
       firstName: '',
       lastName: '',
       email: '',
+      phone: '',
+      addressOne: '',
+      addressTwo: '',
+      state: '',
+      zipCode: '',
       password: '',
       confirmPassword: ''
     };
@@ -41,19 +46,16 @@ class SignupForm extends React.Component {
   }
 
   render() {
-    const { firstName, lastName, email, password, confirmPassword } = this.state;
+    const { firstName, lastName, email, password, confirmPassword, phone, addressOne, addressTwo, state, zipCode } = this.state;
 
     return (
       <div>
-        <h2>Make Your Money Move</h2>
-        <p>Goldeneye lets you invest in companies you love, commission-free.</p>
-
         <form onSubmit={this.hanldeSubmit}>
 
           <Row>
             <Col md={6}>
               <FormGroup controlId="firstName">
-
+                <ControlLabel>First Name</ControlLabel>
                 <FormControl
                   name='firstName'
                   type="text"
@@ -66,6 +68,7 @@ class SignupForm extends React.Component {
             </Col>
             <Col md={6}>
               <FormGroup controlId="lastName">
+                <ControlLabel>Last Name</ControlLabel>
                 <FormControl
                   name='lastName'
                   type="text"
@@ -79,6 +82,7 @@ class SignupForm extends React.Component {
           </Row>
 
           <FormGroup controlId="email">
+            <ControlLabel>Email</ControlLabel>
             <FormControl
               name='email'
               type="email"
@@ -88,7 +92,65 @@ class SignupForm extends React.Component {
             />
           </FormGroup>
 
+          <FormGroup controlId="phone">
+            <ControlLabel>Phone</ControlLabel>
+            <FormControl
+              name='phone'
+              type="phone"
+              value={phone}
+              placeholder="Phone number"
+              onChange={this.handleChange}
+            />
+          </FormGroup>
+
+          <FormGroup controlId="addressOne">
+            <ControlLabel>Address line 1</ControlLabel>
+            <FormControl
+              name='addressOne'
+              type="text"
+              value={addressOne}
+              placeholder="Address line one"
+              onChange={this.handleChange}
+            />
+          </FormGroup>
+
+          <FormGroup controlId="addressTwo">
+            <ControlLabel>Address line 2</ControlLabel>
+            <FormControl
+              name='addressTwo'
+              type="text"
+              value={addressTwo}
+              placeholder="Address line two"
+              onChange={this.handleChange}
+            />
+          </FormGroup>
+
+          <FormGroup controlId="state">
+            <ControlLabel>State</ControlLabel>
+            <FormControl
+              name='state'
+              type="text"
+              value={state}
+              placeholder="State"
+              onChange={this.handleChange}
+            />
+          </FormGroup>
+
+          <FormGroup controlId="zipCode">
+            <ControlLabel>Zip Code</ControlLabel>
+            <FormControl
+              name='zipCode'
+              type="number"
+              value={zipCode}
+              min={11111}
+              minLength={5}
+              placeholder="Zip Code"
+              onChange={this.handleChange}
+            />
+          </FormGroup>
+
           <FormGroup controlId="password" validationState={this.validatePassword()}>
+            <ControlLabel>Password</ControlLabel>
             <FormControl
               name='password'
               type="password"
@@ -99,6 +161,7 @@ class SignupForm extends React.Component {
           </FormGroup>
 
           <FormGroup controlId="confirmPassword" validationState={this.validatePassword()}>
+            <ControlLabel>Confirm Password</ControlLabel>
             <FormControl
               name='confirmPassword'
               type="password"
@@ -111,7 +174,7 @@ class SignupForm extends React.Component {
 
           <FormGroup>
             <Button type='submit' bsStyle="primary" bsSize="large">Sign up</Button>
-            <NavLink to='/login' activeClassName="is-active" className='pull-right'> Login </NavLink>
+            <NavLink to='/login' activeClassName="is-active" className='pull-right'> Already having account? </NavLink>
           </FormGroup>
         </form>
       </div>

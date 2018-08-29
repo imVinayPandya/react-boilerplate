@@ -71,6 +71,8 @@ class LoginForm extends Component {
               <h4>Something went wrong!</h4>
               <p>{errors.global}</p>
             </Alert> : ''}
+
+
           <FormGroup controlId="email" validationState={errors.email ? 'error' : null}>
             <FormControl
               name='email'

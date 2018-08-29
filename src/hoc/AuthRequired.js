@@ -7,7 +7,7 @@ export default (ChildComponent) => {
   class AuthRequired extends PureComponent {
     render() {
       const { isAuthenticated } = this.props;
-      // console.log(this.props);
+      // console.log(isAuthenticated);
       switch (isAuthenticated) {
         case undefined:
         case false:

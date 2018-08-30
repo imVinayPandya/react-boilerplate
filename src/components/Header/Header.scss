@@ -3,15 +3,25 @@ li.menu-item > a {
 }
 
 span.menu-header {
-  // display: inline-block;
-  // vertical-align: text-top;
-  // float: none;
   font-size: 16px;
   font-weight: 600;
+  text-transform: capitalize;
 }
 
 span.menu-subtitle{
   font-size: 12px;
-  // float: none;
-  // margin-left: 26px
+}
+
+
+.nav-sidebar-content::-webkit-scrollbar {
+  width: 2px;
+}
+
+.nav-sidebar-content::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+
+.nav-sidebar-content::-webkit-scrollbar-thumb {
+  background-color: #31ca80;
+  outline: 1px solid slategrey;
 }

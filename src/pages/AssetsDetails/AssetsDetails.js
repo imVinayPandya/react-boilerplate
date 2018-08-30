@@ -3,17 +3,17 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { changeNavTitle } from '../../actions/common';
 
-const Dashboard = (props) => {
+const AssetsDetails = (props) => {
   const { changeNavTitle: changeNavBarTitle } = props;
   return (
     <div>
-      <h5>Welcome to golden eye {changeNavBarTitle({ title: 'account summary' })}</h5>
+      <h5>Assets details {changeNavBarTitle({ title: 'assets details' })}</h5>
     </div>
   );
 };
 
-Dashboard.propTypes = {
+AssetsDetails.propTypes = {
   changeNavTitle: PropTypes.func.isRequired
 };
 
-export default connect(null, { changeNavTitle })(Dashboard);
+export default connect(null, { changeNavTitle })(AssetsDetails);

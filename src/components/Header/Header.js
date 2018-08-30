@@ -22,7 +22,7 @@ class Header extends Component {
   }
 
   render() {
-    const { logout: logoutFunc } = this.props;
+    const { logout: logoutFunc, navBarTitle } = this.props;
     return (
       <Navbar fluid>
         <Navbar.Header>
@@ -34,7 +34,7 @@ class Header extends Component {
         <Nav>
           <NavItem eventKey={4} className='menu-item'>
             <div>
-              <span className='menu-header'>Account Summary</span>
+              <span className='menu-header'>{navBarTitle}</span>
               <br />
               <span className='menu-subtitle'>Welcome back Vinay Pandya! Your last login was</span>
             </div>
@@ -71,7 +71,8 @@ Header.propTypes = {
 
 function mapStateToProps(state) {
   return {
-    isAuthenticated: !!state.user.token
+    isAuthenticated: !!state.user.token,
+    navBarTitle: state.common.title
   };
 }
 

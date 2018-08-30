@@ -10,7 +10,6 @@ export const userLoggedOut = () => ({
   type: USER_LOGGED_OUT
 });
 
-
 export const login = (credentials) => (dispatch, getstate, apiInstance) =>
   api.user.login(credentials).then(user => {
     localStorage.setItem('token', user.token);

@@ -106,7 +106,9 @@ class Layout extends Component {
 
   render() {
     const { isAuthenticated, logout: logoutFunc, route } = this.props;
+
     const { open, sidebarDocked, styles } = this.state;
+
     const accountLinks = [
       <NavLink key="dashboard" to='/dashboard' activeClassName='sidenav-link-active' style={styles.sidebarLink}>
         <SideNavIcon icon={clipboard} />&nbsp;&nbsp;
@@ -191,14 +193,13 @@ class Layout extends Component {
           {/* this is main content */}
           <div className='container-fluid'>
 
-            <NavLink to='/' activeClassName="is-active">Home</NavLink>
-            {isAuthenticated ? <button type='button' onClick={logoutFunc}>Logout</button> : <NavLink to='/login' activeClassName="is-active">Login</NavLink>}
+            {/* {isAuthenticated ? <button type='button' onClick={logoutFunc}>Logout</button> : <NavLink to='/login' activeClassName="is-active">Login</NavLink>} */}
 
             {renderRoutes(route.routes)}
           </div>
 
           {/* this is footer */}
-          <Footer />
+          {/* <Footer /> */}
 
         </Sidebar>
 
@@ -210,8 +211,8 @@ class Layout extends Component {
 
 Layout.propTypes = {
   route: PropTypes.shape({ routes: PropTypes.array.isRequired }).isRequired,
-  isAuthenticated: PropTypes.bool.isRequired,
-  logout: PropTypes.func.isRequired
+  // isAuthenticated: PropTypes.bool.isRequired,
+  // logout: PropTypes.func.isRequired
 };
 
 function mapStateToProps(state) {

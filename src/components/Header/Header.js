@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
-import PropsTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { Nav, Navbar, NavItem, NavDropdown, MenuItem, Badge, Image } from 'react-bootstrap';
 import { androidMenu } from 'react-icons-kit/ionicons/androidMenu';
 import { iosBell } from 'react-icons-kit/ionicons/iosBell';
 import { Icon } from 'react-icons-kit';
+import { connect } from 'react-redux';
+import { logout } from '../../actions/auth';
+
 import './Header.scss';
 
 class Header extends Component {
@@ -19,6 +22,7 @@ class Header extends Component {
   }
 
   render() {
+    const { logout: logoutFunc } = this.props;
     return (
       <Navbar fluid>
         <Navbar.Header>
@@ -52,7 +56,7 @@ class Header extends Component {
             <MenuItem eventKey={3.2}>Another action</MenuItem>
             <MenuItem eventKey={3.3}>Something else here</MenuItem>
             <MenuItem divider />
-            <MenuItem eventKey={3.4}>Logout</MenuItem>
+            <MenuItem eventKey={3.4} onClick={logoutFunc}>Logout</MenuItem>
           </NavDropdown>
         </Nav>
       </Navbar>
@@ -61,7 +65,14 @@ class Header extends Component {
 };
 
 Header.propTypes = {
-  toogleSidebar: PropsTypes.func.isRequired
+  toogleSidebar: PropTypes.func.isRequired,
+  logout: PropTypes.func.isRequired
 };
 
-export default Header;
+function mapStateToProps(state) {
+  return {
+    isAuthenticated: !!state.user.token
+  };
+}
+
+export default connect(mapStateToProps, { logout })(Header);

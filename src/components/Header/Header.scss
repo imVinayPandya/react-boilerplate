@@ -12,6 +12,15 @@ span.menu-subtitle{
   font-size: 12px;
 }
 
+span.notification-badge{
+  border: 1px solid #fff;
+  top: -15px;
+  left: -11px;
+  position: relative;
+  background: #f95a5c;
+  font-size: 9px;
+  padding: 3px 4px;
+}
 
 .nav-sidebar-content::-webkit-scrollbar {
   width: 2px;

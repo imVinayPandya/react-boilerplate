@@ -13,6 +13,7 @@ import Routes from './Routes';
 import 'react-overlay-loader/styles.css';
 import './styles/styles.scss';
 import { userLoggedIn } from './actions/auth';
+import { changeNavTitle } from './actions/common';
 
 const store = createStore(
   rootReducer,
@@ -22,6 +23,7 @@ const store = createStore(
 if (localStorage.token) {
   const user = { token: localStorage.token };
   store.dispatch(userLoggedIn(user));
+  store.dispatch(changeNavTitle({ notificationCount: Math.round(Math.random() * 100) }));
 }
 
 const jsx = (

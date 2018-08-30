@@ -22,7 +22,7 @@ class Header extends Component {
   }
 
   render() {
-    const { logout: logoutFunc, navBarTitle } = this.props;
+    const { logout: logoutFunc, commonData: common } = this.props;
     return (
       <Navbar fluid>
         <Navbar.Header>
@@ -34,7 +34,7 @@ class Header extends Component {
         <Nav>
           <NavItem eventKey={4} className='menu-item'>
             <div>
-              <span className='menu-header'>{navBarTitle}</span>
+              <span className='menu-header'>{common.title}</span>
               <br />
               <span className='menu-subtitle'>Welcome back Vinay Pandya! Your last login was</span>
             </div>
@@ -44,7 +44,7 @@ class Header extends Component {
         <Nav pullRight>
           <NavItem eventKey={1}>
             <Icon icon={iosBell} size={23} style={{ paddingRight: '0px' }} />
-            <Badge style={{ border: '#fff 1px solid', top: '-15px', left: '-11px', position: 'relative', background: '#f95a5c', fontSize: '9px', padding: '3px 4px' }}>21</Badge>
+            <Badge className='notification-badge'>{common.notificationCount}</Badge>
           </NavItem>
 
           <NavItem eventKey={2} className='menu-item'>
@@ -66,13 +66,17 @@ class Header extends Component {
 
 Header.propTypes = {
   toogleSidebar: PropTypes.func.isRequired,
-  logout: PropTypes.func.isRequired
+  logout: PropTypes.func.isRequired,
+  commonData: PropTypes.shape({
+    title: PropTypes.string,
+    notificationCount: PropTypes.number
+  }).isRequired
 };
 
 function mapStateToProps(state) {
   return {
     isAuthenticated: !!state.user.token,
-    navBarTitle: state.common.title
+    commonData: state.common
   };
 }
 

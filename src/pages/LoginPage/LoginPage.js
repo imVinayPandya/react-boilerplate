@@ -26,6 +26,11 @@ class LoginPage extends Component {
   }
 
   render() {
+    const { location } = this.props;
+    const { search } = location;
+    const params = new URLSearchParams(search);
+    const isLogout = params.get('logout');
+
     return (
       <div className='login-page'>
         <Grid>
@@ -33,7 +38,15 @@ class LoginPage extends Component {
             <Col md={4} mdOffset={4}>
               <div className='card margin-top'>
                 <div className='card-header'>
-                  <h4 className='login-header'>SIGN IN TO YOUR ACCOUNT</h4>
+                  <h4 className='login-header'>
+                    {
+                      isLogout === '1' ? (
+                        <div>
+                          <p>You are now logged out.</p>
+                          <p>Thank you for using Save Simply!</p>
+                        </div>
+                      ) : 'SIGN IN TO YOUR ACCOUNT'}
+                  </h4>
                 </div>
                 <div className='card-content'>
                   <LoginForm onLogin={this.hanldeLogin} />

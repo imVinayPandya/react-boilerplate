@@ -6,7 +6,7 @@ import { changeNavTitle } from '../../actions/common';
 class Dashboard extends Component {
   componentWillMount() {
     const { changeNavTitle: changeNavBarTitle, commonData: common } = this.props;
-    changeNavBarTitle({ ...common, title: 'assets details' });
+    changeNavBarTitle({ ...common, title: 'Account summary' });
   }
 
   render() {

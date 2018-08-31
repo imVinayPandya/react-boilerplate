@@ -9,8 +9,8 @@ class HomePage extends PureComponent {
     const { isAuthenticated } = this.props;
     return (
       <div>
-        <p> Home page </p>
-        {isAuthenticated ? <Redirect to='/dashboard' /> : <NavLink to='/login' activeClassName="is-active">Login</NavLink>}
+        <h1> Loading... </h1>
+        {isAuthenticated ? <Redirect to='/dashboard' /> : <Redirect to='/login' />}
         {/* {renderRoutes(route.routes)} */}
       </div>
     );

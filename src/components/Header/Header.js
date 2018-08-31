@@ -27,7 +27,7 @@ class Header extends Component {
       <Navbar fluid>
         <Navbar.Header>
           <Navbar.Brand>
-            <Icon icon={androidMenu} size={20} onClick={this.toogleSidebar} />
+            <Icon icon={androidMenu} size={20} onClick={this.toogleSidebar} style={{ cursor: 'pointer' }} />
           </Navbar.Brand>
         </Navbar.Header>
 

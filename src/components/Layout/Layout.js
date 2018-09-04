@@ -46,6 +46,7 @@ const sideNavStyles = {
     // padding: '16px 0px',
     padding: '10px 0 10px 12px',
     textDecoration: 'none',
+    fontSize: '12px'
     // color: '#858697'
   },
   divider: {
@@ -57,6 +58,11 @@ const sideNavStyles = {
     // padding: '16px',
     // height: '100%',
     // backgroundColor: 'white'
+  },
+  footer: {
+    fontSize: '8px',
+    lineHeight: '1px',
+    textAlign: 'center'
   }
 };
 
@@ -180,6 +186,17 @@ class Layout extends Component {
               <div style={styles.header}>Services</div>
               {serviceLinks}
               <div style={styles.paddingBottom} />
+              <div style={styles.paddingBottom} />
+              <div style={styles.paddingBottom} />
+
+              <div style={styles.footer} className='copyright-footer'>
+                <p>© 2018 Save Simply.</p>
+                <p>All rights reserved</p>
+              </div>
+              <div style={styles.paddingBottom} />
+              <div style={styles.paddingBottom} />
+              <div style={styles.paddingBottom} />
+
             </div>
           )}
           open={open}
